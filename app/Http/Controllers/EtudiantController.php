@@ -42,11 +42,11 @@ class EtudiantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreEtudiantRequest $request, Etudiant $etudiant)
-    {
-        $etudiant->update($request->all());
-        return response()->json(['message' => 'Étudiant modifié', 'etudiant' => $etudiant]);
-    }
+    public function update(UpdateEtudiantRequest $request, Etudiant $etudiant)
+{
+    $etudiant->update($request->all());
+    return response()->json(['message' => 'Étudiant modifié', 'etudiant' => $etudiant]);
+}
     
     /**
      * Remove the specified resource from storage.
@@ -57,8 +57,12 @@ class EtudiantController extends Controller
         return response()->json(['message' => 'Étudiant supprimé']);
     }
 
-    public function restore(Etudiant $etudiant){
-        $etudiant->restore();
-        return response()->json(['message' => 'Étudiant restauré']);
-    }
+    public function restore($id)
+{
+    $etudiant = Etudiant::withTrashed()->findOrFail($id);
+    $etudiant->restore();
+
+    return response()->json(['message' => 'Étudiant restauré']);
+}
+
 }

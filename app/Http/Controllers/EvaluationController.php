@@ -27,6 +27,7 @@ class EvaluationController extends Controller
         $evaluation = Evaluation::create($request->all());
         return response()->json(['évaluation créée', $evaluation]);
     }
+    
 
     /**
      * Display the specified resource.
@@ -43,7 +44,7 @@ class EvaluationController extends Controller
     public function update(UpdateEvaluationRequest $request, Evaluation $evaluation)
     {
         $evaluation->update($request->all());
-        return response()->json(['message' => 'Evaluation modifiée', 'évaluation' => $evaluation]);
+        return response()->json(['message' => 'Evaluation modifiée', 'evaluation' => $evaluation]);
     }
 
     /**

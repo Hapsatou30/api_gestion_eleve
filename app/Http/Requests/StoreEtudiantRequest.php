@@ -23,7 +23,7 @@ class StoreEtudiantRequest extends FormRequest
         return [
             'nom' => ["required", "string"],
             'prenom' => ["required", "string"],
-            'date_naissance' => ["required", "date"],
+            'date_de_naissance' => ["required", "date_format:Y-m-d"],
             'adresse' => ["required", "string"],
             'telephone' => ["required", "string", "unique:etudiants,telephone"],
             'email' => ["required", "email", "unique:etudiants,email"],
