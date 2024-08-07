@@ -143,8 +143,56 @@
                 }
             }
         },
-        "/api/evaluations/2": {
-            "patch": {
+        "/api/evaluations/{evaluation} ": {
+            "get": {
+                "summary": "Détail d'une evaluation",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD EVALUATION"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "evaluation",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            },
+            "put": {
                 "summary": "Modification d'une note",
                 "description": "",
                 "responses": {
@@ -177,9 +225,14 @@
                     }
                 },
                 "tags": [
-                    "CRUD NOTE"
+                    "CRUD EVALUATION"
                 ],
                 "parameters": [
+                    {
+                        "in": "path",
+                        "name": "evaluation",
+                        "type": "string"
+                    },
                     {
                         "in": "header",
                         "name": "User-Agent",
@@ -215,9 +268,7 @@
                         }
                     }
                 }
-            }
-        },
-        "/api/evaluations/3": {
+            },
             "delete": {
                 "summary": "Supprimer une note",
                 "description": "",
@@ -260,9 +311,14 @@
                     }
                 },
                 "tags": [
-                    "CRUD NOTE"
+                    "CRUD EVALUATION"
                 ],
                 "parameters": [
+                    {
+                        "in": "path",
+                        "name": "evaluation",
+                        "type": "string"
+                    },
                     {
                         "in": "header",
                         "name": "User-Agent",
@@ -314,7 +370,7 @@
                     }
                 },
                 "tags": [
-                    "CRUD NOTE"
+                    "CRUD EVALUATION"
                 ],
                 "parameters": [
                     {
@@ -390,7 +446,7 @@
                     }
                 },
                 "tags": [
-                    "CRUD NOTE"
+                    "CRUD EVALUATION"
                 ],
                 "parameters": [
                     {
@@ -401,13 +457,13 @@
                 ]
             }
         },
-        "/api/etudiants/1/restore": {
-            "post": {
-                "summary": "Restaurer un etudiant",
+        "/api/etudiants/{etudiant}": {
+            "get": {
+                "summary": "Detail d'un etudiant",
                 "description": "",
                 "responses": {
-                    "201": {
-                        "description": "Created successfully",
+                    "200": {
+                        "description": "OK",
                         "content": {
                             "application/json": {
                                 "schema": {},
@@ -415,8 +471,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Bad Request",
+                    "404": {
+                        "description": "Not Found",
                         "content": {
                             "application/json": {
                                 "schema": {},
@@ -424,17 +480,8 @@
                             }
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
-                        "content": {
-                            "application/json": {
-                                "schema": {},
-                                "example": ""
-                            }
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
+                    "500": {
+                        "description": "Internal Server Error",
                         "content": {
                             "application/json": {
                                 "schema": {},
@@ -448,14 +495,17 @@
                 ],
                 "parameters": [
                     {
+                        "in": "path",
+                        "name": "etudiant",
+                        "type": "string"
+                    },
+                    {
                         "in": "header",
                         "name": "User-Agent",
                         "type": "string"
                     }
                 ]
-            }
-        },
-        "/api/etudiants/2": {
+            },
             "delete": {
                 "summary": "Supprimer un etudiant",
                 "description": "",
@@ -502,13 +552,18 @@
                 ],
                 "parameters": [
                     {
+                        "in": "path",
+                        "name": "etudiant",
+                        "type": "string"
+                    },
+                    {
                         "in": "header",
                         "name": "User-Agent",
                         "type": "string"
                     }
                 ]
             },
-            "patch": {
+            "put": {
                 "summary": "Modifier un etudiant",
                 "description": "",
                 "responses": {
@@ -544,6 +599,11 @@
                     "CRUD ETUDIANT"
                 ],
                 "parameters": [
+                    {
+                        "in": "path",
+                        "name": "etudiant",
+                        "type": "string"
+                    },
                     {
                         "in": "header",
                         "name": "User-Agent",
@@ -599,6 +659,65 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/etudiants/{id}/restore": {
+            "post": {
+                "summary": "Restaurer un etudiant",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD ETUDIANT"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
             }
         },
         "/api/etudiants": {

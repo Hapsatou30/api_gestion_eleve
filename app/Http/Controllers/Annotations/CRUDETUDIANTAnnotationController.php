@@ -25,17 +25,18 @@ namespace App\Http\Controllers\Annotations ;
 
  *
 
- * @OA\POST(
- *     path="/api/etudiants/1/restore",
- *     summary="Restaurer un etudiant",
+ * @OA\GET(
+ *     path="/api/etudiants/{etudiant}",
+ *     summary="Detail d'un etudiant",
  *     description="",
  *         security={
  *    {       "BearerAuth": {}}
  *         },
- * @OA\Response(response="201", description="Created successfully"),
- * @OA\Response(response="400", description="Bad Request"),
- * @OA\Response(response="401", description="Unauthorized"),
- * @OA\Response(response="403", description="Forbidden"),
+ * @OA\Response(response="200", description="OK"),
+ * @OA\Response(response="404", description="Not Found"),
+ * @OA\Response(response="500", description="Internal Server Error"),
+ *     @OA\Parameter(in="path", name="etudiant", required=false, @OA\Schema(type="string")
+ * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
  *     tags={"CRUD ETUDIANT"},
@@ -43,7 +44,7 @@ namespace App\Http\Controllers\Annotations ;
 
 
  * @OA\DELETE(
- *     path="/api/etudiants/2",
+ *     path="/api/etudiants/{etudiant}",
  *     summary="Supprimer un etudiant",
  *     description="",
  *         security={
@@ -53,14 +54,16 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="401", description="Unauthorized"),
  * @OA\Response(response="403", description="Forbidden"),
  * @OA\Response(response="404", description="Not Found"),
+ *     @OA\Parameter(in="path", name="etudiant", required=false, @OA\Schema(type="string")
+ * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
  *     tags={"CRUD ETUDIANT"},
 *),
 
 
- * @OA\PATCH(
- *     path="/api/etudiants/2",
+ * @OA\PUT(
+ *     path="/api/etudiants/{etudiant}",
  *     summary="Modifier un etudiant",
  *     description="",
  *         security={
@@ -69,6 +72,8 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="200", description="OK"),
  * @OA\Response(response="404", description="Not Found"),
  * @OA\Response(response="500", description="Internal Server Error"),
+ *     @OA\Parameter(in="path", name="etudiant", required=false, @OA\Schema(type="string")
+ * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\RequestBody(
@@ -91,6 +96,25 @@ namespace App\Http\Controllers\Annotations ;
  *             ),
  *         ),
  *     ),
+ *     tags={"CRUD ETUDIANT"},
+*),
+
+
+ * @OA\POST(
+ *     path="/api/etudiants/{id}/restore",
+ *     summary="Restaurer un etudiant",
+ *     description="",
+ *         security={
+ *    {       "BearerAuth": {}}
+ *         },
+ * @OA\Response(response="201", description="Created successfully"),
+ * @OA\Response(response="400", description="Bad Request"),
+ * @OA\Response(response="401", description="Unauthorized"),
+ * @OA\Response(response="403", description="Forbidden"),
+ *     @OA\Parameter(in="path", name="id", required=false, @OA\Schema(type="string")
+ * ),
+ *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
+ * ),
  *     tags={"CRUD ETUDIANT"},
 *),
 

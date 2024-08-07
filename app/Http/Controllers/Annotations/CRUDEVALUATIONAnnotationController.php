@@ -25,8 +25,26 @@ namespace App\Http\Controllers\Annotations ;
 
  *
 
- * @OA\PATCH(
- *     path="/api/evaluations/2",
+ * @OA\GET(
+ *     path="/api/evaluations/{evaluation} ",
+ *     summary="Détail d'une evaluation",
+ *     description="",
+ *         security={
+ *    {       "BearerAuth": {}}
+ *         },
+ * @OA\Response(response="200", description="OK"),
+ * @OA\Response(response="404", description="Not Found"),
+ * @OA\Response(response="500", description="Internal Server Error"),
+ *     @OA\Parameter(in="path", name="evaluation", required=false, @OA\Schema(type="string")
+ * ),
+ *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
+ * ),
+ *     tags={"CRUD EVALUATION"},
+*),
+
+
+ * @OA\PUT(
+ *     path="/api/evaluations/{evaluation} ",
  *     summary="Modification d'une note",
  *     description="",
  *         security={
@@ -35,6 +53,8 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="200", description="OK"),
  * @OA\Response(response="404", description="Not Found"),
  * @OA\Response(response="500", description="Internal Server Error"),
+ *     @OA\Parameter(in="path", name="evaluation", required=false, @OA\Schema(type="string")
+ * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
  *     @OA\RequestBody(
@@ -52,12 +72,12 @@ namespace App\Http\Controllers\Annotations ;
  *             ),
  *         ),
  *     ),
- *     tags={"CRUD NOTE"},
+ *     tags={"CRUD EVALUATION"},
 *),
 
 
  * @OA\DELETE(
- *     path="/api/evaluations/3",
+ *     path="/api/evaluations/{evaluation} ",
  *     summary="Supprimer une note",
  *     description="",
  *         security={
@@ -67,9 +87,11 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="401", description="Unauthorized"),
  * @OA\Response(response="403", description="Forbidden"),
  * @OA\Response(response="404", description="Not Found"),
+ *     @OA\Parameter(in="path", name="evaluation", required=false, @OA\Schema(type="string")
+ * ),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
- *     tags={"CRUD NOTE"},
+ *     tags={"CRUD EVALUATION"},
 *),
 
 
@@ -102,7 +124,7 @@ namespace App\Http\Controllers\Annotations ;
  *             ),
  *         ),
  *     ),
- *     tags={"CRUD NOTE"},
+ *     tags={"CRUD EVALUATION"},
 *),
 
 
@@ -118,10 +140,10 @@ namespace App\Http\Controllers\Annotations ;
  * @OA\Response(response="500", description="Internal Server Error"),
  *     @OA\Parameter(in="header", name="User-Agent", required=false, @OA\Schema(type="string")
  * ),
- *     tags={"CRUD NOTE"},
+ *     tags={"CRUD EVALUATION"},
 *),
 
 
 */
 
- class CRUDNOTEAnnotationController {}
+ class CRUDEVALUATIONAnnotationController {}
